@@ -28,7 +28,13 @@
                 <div class="product_content text-center">
                   <div class="product_title"><a href="product.html">{{ item.name }}</a></div>
                   <div class="product_price">ARDOR {{ item.price }}</div>
-                  <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
+
+                  {% if item.id in cart_items %}
+                  <div class="product_button ml-auto mr-auto trans_200"><a href="">In Cart</a></div>
+                  {% else %}
+                  <div class="product_button ml-auto mr-auto trans_200"><a href="{% url 'additem' item_id=item.id %}">add to cart</a></div>
+                  {% endif %}
+
                 </div>
               </div>
             </div>

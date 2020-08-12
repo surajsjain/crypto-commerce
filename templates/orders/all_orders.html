@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Orders
+{% endblock %}
+
+{% block extraHead %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="aStar Fashion Template Project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'mainsite/styles/bootstrap-4.1.3/bootstrap.css' %}">
+<link href="{% static 'mainsite/plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'mainsite/plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'mainsite/plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'mainsite/plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'mainsite/styles/cart.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'mainsite/styles/cart_responsive.css' %}">
+{% endblock %}
+
+{% block mainContent %}
+
+<div class="container mb-6" style="margin: 6%;">
+
+  {% for cart in carts %}
+  <div class="card" style="width: 80%; margin-bottom: 4%;">
+    <div class="card-body" style="background:
+    {% if cart.status == 'check' %}
+    greenyellow;
+    {% else %}
+    cornflowerblue;
+    {% endif %}
+    ">
+      <h4 class="card-title" style="color:
+      {% if cart.status == 'check' %}
+      black;
+      {% else %}
+      white;
+      {% endif %}
+      ">
+        {% if cart.status == 'check' %}
+        (Unconfirmed)
+        {% endif %}
+
+        {{ cart.unique_code }}
+      </h4>
+      <p class="card-text" style="color:
+      {% if cart.status == 'check' %}
+      black;
+      {% else %}
+      white;
+      {% endif %}">
+        {% for item in cart.cart_items %}
+        {{ item.name }},
+        {% endfor %}
+      </p>
+
+      <h2 style="color:
+      {% if cart.status == 'check' %}
+      black;
+      {% else %}
+      white;
+      {% endif %}">
+      Price: ARDOR {{ cart.cart_total }}</h2>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

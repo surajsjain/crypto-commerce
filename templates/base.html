@@ -49,7 +49,7 @@
 					<ul>
 						<li><a href="index.html">home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 						<!-- <li><a href="#">woman<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
-						<li><a href="#">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+						<li><a href="{% url 'all_orders' %}">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 						<!-- <li><a href="#">lookbook<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 						<!-- <li><a href="blog.html">blog<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 						<!-- <li><a href="#">contact<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
@@ -82,7 +82,7 @@
 				<ul>
 					<li><a href="index.html">home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 					<!-- <li><a href="#">woman<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
-					<li><a href="#">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+					<li><a href="{% url 'all_orders' %}">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 					<!-- <li><a href="#">lookbook<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 					<!-- <li><a href="blog.html">blog<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 					<!-- <li><a href="#">contact<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
@@ -125,7 +125,7 @@
 				<ul>
 					<li><a href="{% url 'home' %}">home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 					<!-- <li><a href="#">woman<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
-					<li><a href="#">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+					<li><a href="{% url 'all_orders' %}">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 					<!-- <li><a href="#">lookbook<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 					<!-- <li><a href="blog.html">blog<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 					<!-- <li><a href="#">contact<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
@@ -142,7 +142,7 @@
 
 			<!-- Cart -->
 			<div class="cart d-flex flex-row align-items-center justify-content-start">
-				<div class="cart_icon"><a href="cart.html">
+				<div class="cart_icon"><a href="{% url 'cart' %}">
 						<img src="{% static 'mainsite/images/bag.png' %}" alt="">
 						<div class="cart_num">2</div>
 					</a></div>
@@ -154,33 +154,6 @@
 		<!-- Products -->
 		{% block mainContent %}
 		{% endblock %}
-
-		<!-- Footer -->
-
-		<footer class="footer">
-
-			<!-- Credits -->
-			<div class="credits">
-				<div class="section_container">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<div class="credits_content d-flex flex-row align-items-center justify-content-end">
-									<div class="credits_text">
-										<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-										Copyright &copy;<script>
-											document.write(new Date().getFullYear());
-										</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-										<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
 	</div>
 
 	<script src="{% static 'mainsite/js/jquery-3.2.1.min.js' %}"></script>

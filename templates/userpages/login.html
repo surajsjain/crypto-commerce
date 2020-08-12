@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block extraHead %}
+
+<link rel="stylesheet" href="{% static 'userpages/main.css' %}">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+{% endblock %}
+
+{% block mainContent %}
+<div class="login-page">
+  <div class="form">
+    <!-- <form class="register-form">
+      <input type="text" placeholder="name" />
+      <input type="password" placeholder="password" />
+      <input type="text" placeholder="email address" />
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form> -->
+    <form class="login-form" action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      <input type="text" placeholder="username" name="username"/>
+      <input type="password" placeholder="password" name="password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a href="{% url 'signup' %}">Create an account</a></p>
+    </form>
+  </div>
+</div>
+{% endblock %}

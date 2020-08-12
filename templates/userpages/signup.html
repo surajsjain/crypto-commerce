@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block extraHead %}
+
+<link rel="stylesheet" href="{% static 'userpages/main.css' %}">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+{% endblock %}
+
+{% block mainContent %}
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" action="{% url 'signup' %}" method="POST">
+      {% csrf_token %}
+
+      <label for="username">Enter your username</label>
+      <input type="text" placeholder="ex: jondoe" name="username"/>
+
+      <label for="firstname">Enter your First Name</label>
+      <input type="firstname" placeholder="ex: Jon" name="firstname"/>
+
+      <label for="lastname">Enter your First Name</label>
+      <input type="lastname" placeholder="ex: Doe" name="lastname"/>
+
+      <label for="email">Enter your email</label>
+      <input type="email" placeholder="ex: jondoe@gmail.com" name="email"/>
+
+      <label for="password">Enter a password</label>
+      <input type="password" placeholder="ex: #H3^c7%_sd8&9" name="password"/>
+
+      <label for="address">Enter your Shipping Address</label>
+      <input type="address" placeholder="ex: No. 38, Palm St., Starfish Island, Vice City" name="address"/>
+
+      <label for="country">Enter your country name for shipping</label>
+      <input type="country" placeholder="ex: United States" name="country"/>
+
+      <button>Sign Up</button>
+
+      <p class="message">Already registered? <a href="{% url 'login' %}">LOG IN</a></p>
+    </form>
+  </div>
+</div>
+{% endblock %}

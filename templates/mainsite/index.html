@@ -29,10 +29,14 @@
                   <div class="product_title"><a href="product.html">{{ item.name }}</a></div>
                   <div class="product_price">ARDOR {{ item.price }}</div>
 
-                  {% if item.id in cart_items %}
-                  <div class="product_button ml-auto mr-auto trans_200"><a href="">In Cart</a></div>
+                  {% if user.is_authenticated %}
+                    {% if item.id in cart_items %}
+                    <div class="product_button ml-auto mr-auto trans_200"><a href="">In Cart</a></div>
+                    {% else %}
+                    <div class="product_button ml-auto mr-auto trans_200"><a href="{% url 'additem' item_id=item.id %}">add to cart</a></div>
+                    {% endif %}
                   {% else %}
-                  <div class="product_button ml-auto mr-auto trans_200"><a href="{% url 'additem' item_id=item.id %}">add to cart</a></div>
+                    <div class="product_button ml-auto mr-auto trans_200"><a href="{% url 'login'%}">add to cart</a></div>
                   {% endif %}
 
                 </div>

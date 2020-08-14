@@ -44,6 +44,12 @@ Orders
         {% endif %}
 
         {{ cart.unique_code }}
+        {% if cart.status == 'confirmed' %}
+        <br><span style="font-size: small;">OUT FOR DELIVERY</span>
+        {% elif cart.status == 'delivered' %}
+        <br><span style="font-size: small;">DELIVERED</span>
+        {% endif %}
+
       </h4>
       <p class="card-text" style="color:
       {% if cart.status == 'check' %}
@@ -62,7 +68,13 @@ Orders
       {% else %}
       white;
       {% endif %}">
-      Price: ARDOR {{ cart.cart_total }}</h2>
+        Price:
+        {% if cart.chain == 1 %}
+        ARDR
+        {% else %}
+        IGNIS
+        {% endif %}
+        {{ cart.cart_total }}</h2>
     </div>
   </div>
   {% endfor %}

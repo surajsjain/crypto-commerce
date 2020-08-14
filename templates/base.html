@@ -49,7 +49,9 @@
 					<ul>
 						<li><a href="index.html">home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 						<!-- <li><a href="#">woman<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
+						{% if user.is_authenticated %}
 						<li><a href="{% url 'all_orders' %}">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+						{% endif %}
 						<!-- <li><a href="#">lookbook<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 						<!-- <li><a href="blog.html">blog<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 						<!-- <li><a href="#">contact<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
@@ -82,7 +84,9 @@
 				<ul>
 					<li><a href="index.html">home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 					<!-- <li><a href="#">woman<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
+					{% if user.is_authenticated %}
 					<li><a href="{% url 'all_orders' %}">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+					{% endif %}
 					<!-- <li><a href="#">lookbook<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 					<!-- <li><a href="blog.html">blog<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 					<!-- <li><a href="#">contact<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
@@ -125,7 +129,9 @@
 				<ul>
 					<li><a href="{% url 'home' %}">home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 					<!-- <li><a href="#">woman<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
+					{% if user.is_authenticated %}
 					<li><a href="{% url 'all_orders' %}">My Orders<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+					{% endif %}
 					<!-- <li><a href="#">lookbook<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 					<!-- <li><a href="blog.html">blog<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
 					<!-- <li><a href="#">contact<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->

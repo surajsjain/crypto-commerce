@@ -6,8 +6,9 @@ from listings.models import Item
 # Create your models here.
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
-    status = models.CharField(max_length=15, default='adding') #Adding, Checked, Confirmed
+    status = models.CharField(max_length=15, default='adding') #Adding, Checked, Confirmed, delivered
     unique_code = models.CharField(max_length=50, default='')
+    chain = models.IntegerField(default=1)
 
     def __str__(self):
         try:

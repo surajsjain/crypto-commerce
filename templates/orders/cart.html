@@ -59,14 +59,15 @@ Cart
             </div>
 
             <!-- Cart Buttons -->
-            <div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
+            <!-- <div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
               <div class="cart_buttons_inner ml-auto d-flex flex-row align-items-start justify-content-start flex-wrap">
                 <div class="button button_continue trans_200"><a href="{% url 'home' %}">continue shopping</a></div>
                 {% if cart_items|length != 0 %}
-                <div class="button button_update trans_200"><a href="{% url 'checkout' %}">Checkout ARDOR {{ cart_total }}</a></div>
+                <div class="button button_update trans_200"><a href="{% url 'checkout' chain=1 %}">Checkout ARDOR {{ cart_total }}</a></div>
                 {% endif %}
               </div>
-            </div>
+            </div> -->
+
           </div>
         </div>
       </div>
@@ -97,7 +98,15 @@ Cart
                   <div class="cart_extra_total_value ml-auto">ARDOR {{ cart_total }}</div>
                 </li>
               </ul>
-              <div class="checkout_button trans_200"><a href="{% url 'checkout' %}">proceed to checkout</a></div>
+              <div class="checkout_button trans_200"><a href="{% url 'checkout' chain=1 %}" id="checkout_link">proceed to checkout</a></div>
+              <div class="form-group">
+                <form>
+                  <select name="chain" id="chain" class="form-control" onchange="changeChain()">
+                    <option value="1" selected>With Ardor</option>
+                    <option value="2">With Ignis</option>
+                  </select>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -107,5 +116,24 @@ Cart
     </div>
   </div>
 </div>
+
+{% endblock %}
+
+{% block extraBody %}
+<script type="text/javascript">
+  function changeChain(){
+    sc = document.getElementById('chain');
+    chain = sc.selectedIndex + 1;
+
+    c_out = document.getElementById('checkout_link');
+    checkout_link = c_out.href;
+    n_checkout_link = checkout_link.substr(0, checkout_link.length -2);
+    n_checkout_link += chain;
+    n_checkout_link += '/';
+
+    document.getElementById('checkout_link').href = n_checkout_link;
+    console.log('href changed to '+n_checkout_link);
+  }
+</script>
 
 {% endblock %}

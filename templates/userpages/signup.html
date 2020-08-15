@@ -9,13 +9,16 @@ Sign Up
 {% block extraHead %}
 
 <link rel="stylesheet" href="{% static 'userpages/main.css' %}">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 {% endblock %}
 
 {% block mainContent %}
 <div class="login-page">
-  <div class="form">
+  <div class="form" style="width:110%">
+    <p style="font-size: small;">
+      Note: Please enter the same email that you have used to sign up for <a href="http://localhost:8001">CryptoPay</a>
+    </p>
+    <br>
     <form class="login-form" action="{% url 'signup' %}" method="POST">
       {% csrf_token %}
 

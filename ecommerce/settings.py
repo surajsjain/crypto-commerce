@@ -160,5 +160,6 @@ MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
+# CRYPTOPAY_URL = 'http://localhost:8001/'
+CRYPTOPAY_API_KEY = '21b116puoi11512010438'
 CRYPTOPAY_URL = 'http://localhost:8001/'
-CRYPTOPAY_API_KEY = '72121k105115104g10024'
